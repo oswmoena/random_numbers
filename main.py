@@ -11,6 +11,11 @@ def verify_times():
         return 1
     else:
         return sys.argv[1]
+def verify_type():
+    if len(sys.argv) == 2:
+        return 1
+    else:
+        return 2
 
 
 def verify_num(num):
@@ -21,20 +26,20 @@ def verify_num(num):
 
 
 def add_num():
-    new_num = random.randrange(1, 42)
+    max_rang = 42 if game_type == 1 else 25
+    new_num = random.randrange(1, max_rang)
     if verify_num(new_num):
         return False
     else:
         selected_nums.append(new_num)
-
-
 def rand_num():
-    print("Tiro N°:", count + 1)
-    while len(selected_nums) < 6:
+    max_num = 6 if game_type == 1 else 14
+    print("Tiro N°", count +1)
+    while len(selected_nums) < max_num:
         add_num()
     selected_nums.sort()
 
-
+game_type = int(verify_type())
 times = int(verify_times())
 while times > count:
     rand_num()

@@ -26,7 +26,7 @@ def verify_num(num):
 
 
 def add_num():
-    max_rang = 42 if game_type == 1 else 25
+    max_rang = 42 if game_type == 1 else 26
     new_num = random.randrange(1, max_rang)
     if verify_num(new_num):
         return False
